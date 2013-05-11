@@ -12,8 +12,8 @@ following things:
   o REST interface implementation examples with a commandline client
   o User account management
 
-I do my development on Debian Squeeze and Unstable, but I am fairly confident
-that recent (Spring 2011) Ubuntu releases should work as well. To install
+I do my development on Debian Wheezy and Unstable, but I am fairly confident
+that recent (Spring 2013) Ubuntu releases should work as well. To install
 this in a semi-automated way, run these commands or ones like them from the
 root of the source tree:
 
@@ -29,17 +29,17 @@ At this point, if I haven't messed something up, you should be able to go to:
 
 ...and drive the app around. Here is some other general information
 
-  o The app is built to run with Apache 2.2 and Postgresql (8.4 or 9.0)
+  o The app is built to run with Lighttpd 1.4 and Postgresql (9.1)
   o The administrative account is 'admin' and the password is 'admin'
   o You can get all the logs from the scripts by running:
-      sudo tail -f /var/log/apache2/access.log /var/log/apache2/error.log
+      sudo tail -f /var/log/lighttpd/error.log
   o It is easier to just chown /usr/share/webpy-example and play around
     in there, rather than building a package to test changes. Don't
-    forget to reload Apache when you make code changes!
-      sudo /etc/init.d/apache2 reload
-  o You can also update /etc/apache2/conf.d/webpy-example to point to your
-    checked out directory, but you have to copy over the credentials.py from
-    the installed directory.
+    forget to reload Lighttpd when you make code changes!
+      sudo /etc/init.d/lighttpd reload
+  o You can also update /etc/lighttpd/conf-available/10-webpy-example.conf to
+    point to your checked out directory, but you have to copy over the
+    credentials.py from the installed directory.
   o The database schema is in pgsql.sql and will be created automatically
     via dbconfig-common automation. One issue is that if you re-install the
     package, you should purge (dpkg --purge webpy-example) first and when
