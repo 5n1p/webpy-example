@@ -25,6 +25,11 @@ fi
 
 case "$1" in
   remove|upgrade|deconfigure)
+    # deconfigure lighttpd
+    /usr/sbin/lighttpd-disable-mod webpy-example 2>/dev/null >/dev/null || true
+    /bin/rm /etc/lighttpd/conf-available/10-webpy-example.conf 2>/dev/null >/dev/null || true
+    /etc/init.d/lighttpd restart 2>/dev/null >/dev/null || /etc/init.d/lighttpd restart 2>/dev/null >/dev/null || true
+    # database
     dbc_go webpy-example $@
   ;;
 

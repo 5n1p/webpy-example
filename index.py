@@ -85,6 +85,8 @@ def notfound( message='The server cannot find the requested page.' ):
 app.notfound = notfound
 
 # This is only needed in the index script
-application = app.wsgifunc()
+#application = app.wsgifunc()
+web.wsgi.runwsgi = lambda func, addr=None: web.wsgi.runfcgi(func, addr)
+app.run()
 
 # End

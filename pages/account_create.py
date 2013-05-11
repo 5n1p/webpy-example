@@ -7,12 +7,14 @@ import json
 import string
 import random
 
-from mimerender import mimerender
+import mimerender
 
 import wputil
 log = wputil.Log('account_create')
 import wpauth
 import accountdb
+
+mimerender = mimerender.WebPyMimeRender()
 
 #
 # HTML Form definitions start here

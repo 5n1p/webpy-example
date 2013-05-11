@@ -8,7 +8,7 @@ Standards-Version: 3.6.1
 Package: webpy-example
 Architecture: all
 Pre-Depends: debconf
-Depends: apache2, libapache2-mod-wsgi, python2.6,
+Depends: lighttpd, python2.7,
  python-webpy, python-mimerender, python-magic, python-passlib, python-oauth2,
  postgresql, dbconfig-common, python-psycopg2,
  sudo, vim, ssh

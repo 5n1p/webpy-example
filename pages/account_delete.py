@@ -5,12 +5,14 @@ import sys
 import web
 import json
 
-from mimerender import mimerender
+import mimerender
 
 import wputil
 log = wputil.Log('account_delete')
 import wpauth
 import accountdb
+
+mimerender = mimerender.WebPyMimeRender()
 
 #
 # HTML Form definitions start here

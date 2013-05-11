@@ -28,11 +28,10 @@ fi
 case "$1" in
 
   configure)
-    # Set up our config for apache
-    /bin/cp /usr/share/webpy-example/postinstall/webpy-config /etc/apache2/conf.d/
-    /usr/sbin/a2enmod wsgi
-    /usr/sbin/a2enmod rewrite
-    /etc/init.d/apache2 reload
+    # Set up our config for lighttpd
+    /bin/cp /usr/share/webpy-example/postinstall/10-webpy-example.conf /etc/lighttpd/conf-available/10-webpy-example.conf
+    /usr/sbin/lighttpd-enable-mod webpy-example || true
+    /etc/init.d/lighttpd restart 2>/dev/null >/dev/null || /etc/init.d/lighttpd restart 2>/dev/null >/dev/null || true
 
     # set up database
     dbc_pgsql_createdb_encoding="UTF8"

@@ -5,13 +5,15 @@ import sys
 import web
 import json
 
-from mimerender import mimerender
+import mimerender
 
 import wputil
 log = wputil.Log('account_review')
 
 import accountdb
 adb = accountdb.AccountDB()
+
+mimerender = mimerender.WebPyMimeRender()
 
 # These are the URLs we watch for. We don't see the prepended /account portion
 # in this module because the index.py runs us as a subapplication.

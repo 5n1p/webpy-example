@@ -4,7 +4,7 @@ import os
 import sys
 import web
 
-from mimerender import mimerender
+import mimerender
 
 import wputil
 log = wputil.Log('account')
@@ -16,6 +16,8 @@ import account_create
 import account_review
 import account_update
 import account_delete
+
+mimerender = mimerender.WebPyMimeRender()
 
 # These are the URLs we watch for. We don't see the prepended /account portion
 # in this module because the index.py runs us as a subapplication.

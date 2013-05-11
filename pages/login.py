@@ -5,11 +5,13 @@ import sys
 import web
 import json
 
-from mimerender import mimerender
+import mimerender
 
 import wputil
 import wpauth
 import accountdb
+
+mimerender = mimerender.WebPyMimeRender()
 
 log = wputil.Log('login')
 

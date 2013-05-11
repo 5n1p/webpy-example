@@ -26,10 +26,16 @@ fi
 
 case "$1" in
   purge)
+    if [ -f /usr/share/webpy-example/lib/credentials.py ]; then
+      rm -f /usr/share/webpy-example/lib/credentials.py
+    fi
     dbc_go webpy-example $@
   ;;
 
   remove|upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)
+    if [ -f /usr/share/webpy-example/lib/credentials.py ]; then
+      rm -f /usr/share/webpy-example/lib/credentials.py
+    fi
     dbc_go webpy-example $@
   ;;
 
